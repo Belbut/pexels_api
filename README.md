@@ -1,24 +1,12 @@
-# README
+Pexels Photo Gallery API
+This Rails app integrates with the Pexels API to create a dynamic photo gallery widget. Users can input a Pexels collection ID, and the app fetches and displays photos from that collection in real-time.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features
+Secure API key management using environment variables or Rails credentials
 
-Things you may want to cover:
+Simple home page with a form to input Pexels collection IDs
 
-* Ruby version
+Fetches and displays photos dynamically using the Pexels API
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Demonstrates best practices for consuming third-party RESTful APIs in Rails
+[Odin Project Lesson](https://www.theodinproject.com/lessons/ruby-on-rails-pexels-api)
