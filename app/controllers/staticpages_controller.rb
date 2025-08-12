@@ -3,11 +3,11 @@ class StaticpagesController < ApplicationController
     api_key = Rails.application.credentials.dig(:pexels, :api_key)
     client = Pexels::Client.new(api_key)
 
-    @collections = client.collections.all
-    @collections_for_select = @collections.map { |collection| [collection.title, collection.id] }
+    collections = client.collections
+    @collections_for_select = collections.all.map { |collection| [collection.title, collection.id] }
 
-    return unless params[:collection_id].present?
+    return if params[:collection_id].empty?
 
-    puts params[:collection_id]
+    @media_results = collections[params[:collection_id]].media
   end
 end

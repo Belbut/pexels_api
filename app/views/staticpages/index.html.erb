@@ -1,11 +1,28 @@
 <h1>Staticpages#index</h1>
 <p>Find me in app/views/staticpages/index.html.erb</p>
 
-<h2>Search what collection you want to view</h2>
 
-<%= form_with do |form|%>
-    <%=form.label :collection, "Pick Collection"%>
-    <%=form.select :collection, @collections_for_select %>
+<h2>Search what collection you want to view</h2>
+<%= debug params%>
+<%= form_with method: :get do |form|%>
+    <%=form.label :collection_id, "Pick Collection"%>
+    <%=form.select :collection_id, @collections_for_select, prompt: "-select-" %>
 
     <%=form.submit "Search"%>
+<%end%>
+
+<% if @media_results%>
+    <h2>Results: </h2>
+    <div style="display: grid; grid-template-columns: auto auto auto
+">
+        <% @media_results.each do |media|%>
+            <div style="display: flex; flex-direction:column">
+                <img src="<%=media.src["original"]%>" alt=<%media.src["alt"]%> width="300" height="300">
+                <a href="<%=media.user.url%>"><%=media.user.name%></a>
+            </div>
+        <%end%>
+    </div>
+    <div>
+        <div><a href="https://www.pexels.com">Photos provided by Pexels</a>
+    </div>
 <%end%>
